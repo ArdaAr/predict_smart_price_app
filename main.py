@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 
 
-smart_model = pickle.load(open('mlp_smart_1tahun.sav', 'rb'))
+smart_model = pickle.load(open('LR_2variabel.sav', 'rb'))
 
 container1 = st.container()
 
@@ -16,12 +16,14 @@ with container1:
 
     bursa = st.number_input("Masukkan harga bursa minyak")
 
+    ringgit = st.number_input("Masukkan nilai ringgit")
 
-    if st.button('Predict harga penawaran minyak dari PT SMART'):
-        prediksi_harga_penawaran = smart_model.predict([[bursa]])                          
+
+    if st.button('Predict harga penawaran minyak'):
+        prediksi_harga_penawaran = smart_model.predict([[bursa, ringgit]])                          
         
         # st.subheader(f"Prediksi harga penawaran dari bursa `{bursa}` adalah: ")
-        prediksi_include = round(prediksi_harga_penawaran[0]/1.11, 2)
-        max_nego = prediksi_include-342
+        prediksi_include = round(prediksi_harga_penawaran[0], 2)
+        max_nego = prediksi_include-277.18
         st.success(f"Prediksi harga penawaran dari bursa `{bursa}` adalah: Rp. {prediksi_include},-")
         st.success(f"Perkiraan Maksimal negosiasi yang dapat dilakukan adalah: Rp. {max_nego},-")
