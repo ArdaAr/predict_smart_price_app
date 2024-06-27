@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 
 
-smart_model = pickle.load(open('LR_2variabel.sav', 'rb'))
+smart_model = pickle.load(open('LR_2variabel_new.sav', 'rb'))
 
 container1 = st.container()
 
