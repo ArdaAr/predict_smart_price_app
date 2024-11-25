@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 
 
-smart_model = pickle.load(open('LR_2variabel_new.sav', 'rb'))
+smart_model = pickle.load(open('Model Linear Regression Minyak 25 Nov 2024 95%.pkl', 'rb'))
 
 container1 = st.container()
 
@@ -24,6 +24,6 @@ with container1:
         
         # st.subheader(f"Prediksi harga penawaran dari bursa `{bursa}` adalah: ")
         prediksi_include = round(prediksi_harga_penawaran[0], 2)
-        max_nego = prediksi_include-277.18
+        max_nego = prediksi_include-272
         st.success(f"Prediksi harga penawaran dari bursa `{bursa}` adalah: Rp. {prediksi_include},-")
         st.success(f"Perkiraan Maksimal negosiasi yang dapat dilakukan adalah: Rp. {max_nego},-")
