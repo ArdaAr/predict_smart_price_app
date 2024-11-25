@@ -23,7 +23,7 @@ with container1:
         prediksi_harga_penawaran = smart_model.predict([[bursa, ringgit]])                          
         
         # st.subheader(f"Prediksi harga penawaran dari bursa `{bursa}` adalah: ")
-        prediksi_include = round(prediksi_harga_penawaran[0], 2)
+        prediksi_include = round(prediksi_harga_penawaran[0][0], 2)
         max_nego = prediksi_include-272
         st.success(f"Prediksi harga penawaran dari bursa `{bursa}` adalah: Rp. {prediksi_include},-")
         st.success(f"Perkiraan Maksimal negosiasi yang dapat dilakukan adalah: Rp. {max_nego},-")
