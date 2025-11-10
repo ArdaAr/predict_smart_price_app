@@ -3,7 +3,8 @@ import streamlit as st
 import pandas as pd
 
 
-smart_model = pickle.load(open('Model Linear Regression Minyak 25 Nov 2024 95%.pkl', 'rb'))
+smart_model = pickle.load(open('Linear_Regression_Minyak 10 nov 2025.sav', 'rb'))
+scaler = pickle.load(open('Scaler_Regresi_Minyak_10 nov 2025.sav', 'rb'))
 
 container1 = st.container()
 
@@ -20,10 +21,10 @@ with container1:
 
 
     if st.button('Predict harga penawaran minyak'):
-        prediksi_harga_penawaran = smart_model.predict([[bursa, ringgit]])                          
+        prediksi_harga_penawaran = smart_model.predict(scaler.transform([[bursa, ringgit]]))                          
         
         # st.subheader(f"Prediksi harga penawaran dari bursa `{bursa}` adalah: ")
         prediksi_include = round(prediksi_harga_penawaran[0][0], 2)
-        max_nego = prediksi_include-272
+        max_nego = prediksi_include-98
         st.success(f"Prediksi harga penawaran dari bursa `{bursa}` adalah: Rp. {prediksi_include},-")
         st.success(f"Perkiraan Maksimal negosiasi yang dapat dilakukan adalah: Rp. {max_nego},-")
