@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 
 
-smart_model = pickle.load(open('Linear_Regression_Minyak 10 nov 2025.pkl', 'rb'))
+smart_model = pickle.load(open('Linear_Regression_Minyak_10 nov 2025.pkl', 'rb'))
 scaler = pickle.load(open('Scaler_Regresi_Minyak_10 nov 2025.pkl', 'rb'))
 
 container1 = st.container()
