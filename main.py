@@ -8,7 +8,6 @@ scaler = pickle.load(open('Scaler_Regresi_Minyak_10 nov 2025.pkl', 'rb'))
 
 container1 = st.container()
 
-
 with container1:
 
     prediksi_harga_penawaran = ''
